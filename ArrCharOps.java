@@ -112,10 +112,10 @@ public class ArrCharOps {
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         char[] arr1 = new char[endIndex - beginIndex];
-        for (int i = beginIndex; i < endIndex; i++){
-            for (int j =0; j < arr1.length; j++){
-                arr1[j] = arr[i];
-            }
+        int j = 0; 
+        for (int i = beginIndex; i < endIndex; i++) {
+            arr1[j] = arr[i];
+            j++;
         }
         return arr1;
     }
@@ -167,12 +167,14 @@ public class ArrCharOps {
         }
         int minLength = Math.min(str1.length(), str2.length());
         for (int i = 0; i < minLength; i++){
-            if (str1.charAt(i) != str1.charAt(i)) {
+            if (str1.charAt(i) != str2.charAt(i)) {
                 if (str1.charAt(i) < str2.charAt(i)){
                     return -1;
                 }
+                } else {
+                return 1;
+                }
             }
-        }
         if (str1.length() == str2.length()){
             return 0;
         }
